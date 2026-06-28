@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Pro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="login-page" id="login-page">
+        <div class="login-container">
+            <div class="login-left">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h1>FinTrack Pro</h1>
+                </div>
+                <h2>Welcome Back 👋</h2>
+                <p>
+                    Track your income, expenses, savings, and financial goals with one modern dashboard.
+                </p>
+            </div>
+
+            <div class="login-right">
+                <form id="login-form">
+                    <h2>Login</h2>
+                    <div class="input-box">
+                        <label>Username</label>
+                        <input type="text" id="login-username" placeholder="Enter Username" autocomplete="username">
+                    </div>
+                    <div class="input-box">
+                        <label>Password</label>
+                        <input type="password" id="login-password" placeholder="Enter Password" autocomplete="current-password">
+                    </div>
+                    <button type="submit" id="login-btn">
+                        Login
+                    </button>
+                    <p>
+                        Don't have an account? <span id="show-register">Register Here</span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="register-page" id="register-page">
+        <div class="register-container">
+            <div class="register-left">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <h1>FinTrack Pro</h1>
+                </div>
+                <h2>Create Account</h2>
+                <p>
+                    Start your finance journey by creating a secure account.
+                </p>
+            </div>
+
+            <div class="register-right">
+                <form id="register-form">
+                    <h2>Register</h2>
+                    <div class="input-box">
+                        <label>Full Name</label>
+                        <input type="text" id="register-name" placeholder="Enter Full Name" autocomplete="name">
+                    </div>
+                    <div class="input-box">
+                        <label>Username</label>
+                        <input type="text" id="register-username" placeholder="Choose Username" autocomplete="username">
+                    </div>
+                    <div class="input-box">
+                        <label>Password</label>
+                        <input type="password" id="register-password" placeholder="Create Password" autocomplete="new-password">
+                    </div>
+                    <button type="submit" id="register-btn">
+                        Create Account
+                    </button>
+                    <p>
+                        Already have an account? <span id="show-login">Login Here</span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="app" id="app">
+
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>FinTrack</h2>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="#" id="nav-dashboard">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="nav-transactions">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                            <span>Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="nav-analytics">
+                            <i class="fa-solid fa-chart-column"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="nav-settings">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button type="button" id="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back to FinTrack Pro</p>
+                </div>
+                <div class="navbar-right">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-input" placeholder="Search Transaction...">
+                    </div>
+                    <button type="button" id="theme-btn">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="user-profile">
+                        <div class="user-image">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4 id="display-name">User</h4>
+                            <span>Personal Account</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h2>Financial Overview</h2>
+                    <p>Manage your income, expenses and savings.</p>
+                </div>
+                <button type="button" id="add-transaction-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Transaction
+                </button>
+            </div>
+
+            <div class="statistics-cards">
+                <div class="card balance-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Current Balance</h4>
+                        <h2 id="balance">₹0</h2>
+                    </div>
+                </div>
+                <div class="card income-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Total Income</h4>
+                        <h2 id="income">₹0</h2>
+                    </div>
+                </div>
+                <div class="card expense-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Total Expense</h4>
+                        <h2 id="expense">₹0</h2>
+                    </div>
+                </div>
+                <div class="card transaction-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Transactions</h4>
+                        <h2 id="transaction-count">0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <section class="chart-section">
+                <div class="section-header">
+                    <h3>Cash Flow Analytics</h3>
+                </div>
+                <canvas id="finance-chart"></canvas>
+            </section>
+
+            <section class="transaction-section">
+                <div class="transaction-header">
+                    <h3>Recent Transactions</h3>
+                    <div class="filter-buttons">
+                        <button type="button" class="filter-btn active" data-filter="all">All</button>
+                        <button type="button" class="filter-btn" data-filter="income">Income</button>
+                        <button type="button" class="filter-btn" data-filter="expense">Expense</button>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-body">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="empty-state" id="empty-state">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <h3>No Transactions Yet</h3>
+                    <p>Click <strong>Add Transaction</strong> to start tracking your finances.</p>
+                </div>
+            </section>
+
+            <div class="modal" id="transaction-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Add Transaction</h2>
+                        <button type="button" id="close-modal">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <form id="transaction-form">
+                        <div class="input-group">
+                            <label>Transaction Title</label>
+                            <input type="text" id="transaction-title" placeholder="Enter Title">
+                        </div>
+                        <div class="input-group">
+                            <label>Amount</label>
+                            <input type="number" id="transaction-amount" placeholder="Enter Amount">
+                        </div>
+                        <div class="input-group">
+                            <label>Category</label>
+                            <select id="transaction-category">
+                                <option value="Food">Food</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Date</label>
+                            <input type="date" id="transaction-date">
+                        </div>
+                        <div class="input-group">
+                            <label>Transaction Type</label>
+                            <select id="transaction-type">
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="save-transaction">
+                            Save Transaction
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <section class="settings-section" id="settings-section">
+                <h2>Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Profile</h3>
+                        <input type="text" id="profile-name" placeholder="Full Name">
+                    </div>
+                    <div class="setting-card">
+                        <h3>Preferred Currency</h3>
+                        <select id="currency">
+                            <option value="₹">INR (₹)</option>
+                            <option value="$">USD ($)</option>
+                            <option value="€">EUR (€)</option>
+                            <option value="£">GBP (£)</option>
+                            <option value="¥">JPY (¥)</option>
+                        </select>
+                    </div>
+                    <div class="setting-card">
+                        <h3>Theme</h3>
+                        <button type="button" id="theme-toggle">
+                            Dark / Light Mode
+                        </button>
+                    </div>
+                    <div class="setting-card danger">
+                        <h3>Reset Application</h3>
+                        <button type="button" id="reset-data">
+                            Delete All Data
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>
+            © 2026 FinTrack Pro | Built with ❤️ using HTML CSS JavaScript
+        </p>
+    </footer>
+
+
+<script
+    type="module"
+    src="./js/app.js"
+></script>
+
+</body>
+</html>
