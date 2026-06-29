@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -132,7 +130,7 @@
             <div class="sidebar-bottom">
                 <button type="button" id="logout-btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    Logout
+                    <span>Logout</span>
                 </button>
             </div>
         </aside>
@@ -146,10 +144,6 @@
                         <p>Welcome back to FinTrack Pro</p>
                     </div>
                     <div class="navbar-right">
-                        <div class="search-box">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="search-input" placeholder="Search Transaction...">
-                        </div>
                         <button type="button" id="theme-btn">
                             <i class="fa-solid fa-moon"></i>
                         </button>
@@ -238,10 +232,17 @@
             <section class="transaction-section" id="transaction-section">
                 <div class="transaction-header">
                     <h3>Recent Transactions</h3>
-                    <div class="filter-buttons">
-                        <button type="button" class="filter-btn active" data-filter="all">All</button>
-                        <button type="button" class="filter-btn" data-filter="income">Income</button>
-                        <button type="button" class="filter-btn" data-filter="expense">Expense</button>
+                    
+                    <div class="transaction-controls">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search-input" placeholder="Search Transaction...">
+                        </div>
+                        <div class="filter-buttons">
+                            <button type="button" class="filter-btn active" data-filter="all">All</button>
+                            <button type="button" class="filter-btn" data-filter="income">Income</button>
+                            <button type="button" class="filter-btn" data-filter="expense">Expense</button>
+                        </div>
                     </div>
                 </div>
 
