@@ -64,6 +64,24 @@ loginLink.addEventListener("click", function (event) {
 
 });
 
+// ===========================================
+// Login User
+// ===========================================
+
+loginForm.addEventListener("submit", function (event) {
+
+    // Stop Refresh
+    event.preventDefault();
+
+    // Read Inputs
+    const username = loginUsername.value.trim();
+    const password = loginPassword.value.trim();
+
+    console.log(username);
+    console.log(password);
+
+});
+
 // default page
 showLoginPage();
 
