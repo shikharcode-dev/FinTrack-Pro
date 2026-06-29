@@ -83,6 +83,16 @@ registerForm.addEventListener("submit", function (event) {
     const username = registerUsername.value.trim();
     const password = registerPassword.value.trim();
 
+
+    if (
+        fullName === "" ||
+        username === "" ||
+        password === ""
+)   {
+    alert("Please fill all fields.");
+    return;
+}
+
     console.log(fullName);
     console.log(username);
     console.log(password);
