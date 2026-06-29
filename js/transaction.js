@@ -19,6 +19,8 @@ const transactionTableBody = document.querySelector("#transaction-body");
 
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
+let editIndex = null;
+
 transactionForm.addEventListener("submit", saveTransaction);
 addTransactionBtn.addEventListener("click", openTransactionModal);
 closeModalBtn.addEventListener("click", closeTransactionModal);
@@ -54,7 +56,17 @@ function saveTransaction(event) {
         type
     };
 
-    transactions.push(transaction);
+    if (editIndex === null) {
+
+        transactions.push(transaction);
+
+    } else {
+
+        transactions[editIndex] = transaction;
+
+        editIndex = null;
+
+    }
 
     localStorage.setItem(
         "transactions",
@@ -66,6 +78,7 @@ function saveTransaction(event) {
     closeTransactionModal();
 
     console.log("Transaction Saved Successfully");
+    updateStatistics();
     console.log(transactions);
 }
 
@@ -92,11 +105,16 @@ function renderTransactions() {
                 <td>₹${transaction.amount}</td>
                 <td>${transaction.date}</td>
                 <td>${transaction.type}</td>
-                <td>
+                <td class="action-buttons">
+                    <button
+                        class="edit-btn"
+                        onclick="editTransaction(${index})">
+                        Edit
+                    </button>
+
                     <button
                         class="delete-btn"
-                        onclick="deleteTransaction(${index})"
-                    >
+                        onclick="deleteTransaction(${index})">
                         Delete
                     </button>
                 </td>
@@ -123,6 +141,7 @@ function deleteTransaction(index) {
 
 //using ES Modules (app.js imports transaction.js), the inline HTML not work so we use
 window.deleteTransaction = deleteTransaction;
+window.editTransaction = editTransaction;
 
 
 
@@ -160,3 +179,24 @@ window.addEventListener("click", function (event) {
     }
 
 });
+
+
+function editTransaction(index){
+
+    editIndex = index;
+
+    const transaction = transactions[index];
+
+    transactionTitle.value = transaction.title;
+
+    transactionAmount.value = transaction.amount;
+
+    transactionCategory.value = transaction.category;
+
+    transactionDate.value = transaction.date;
+
+    transactionType.value = transaction.type;
+
+    openTransactionModal();
+
+}

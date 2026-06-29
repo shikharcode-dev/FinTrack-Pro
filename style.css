@@ -1269,3 +1269,38 @@ select:focus {
         justify-content: center;
     }
 }
+
+.action-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.edit-btn{
+    padding:8px 16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#3b82f6;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.edit-btn:hover{
+    background:#2563eb;
+}
+
+.delete-btn{
+    padding:8px 16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#ef4444;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
