@@ -8,7 +8,6 @@
 // ===================================
 
 // DOM Selection
-
 // Pages
 const loginPage = document.getElementById("login-page");
 const registerPage = document.getElementById("register-page");
@@ -36,42 +35,38 @@ const logoutBtn = document.getElementById("logout-btn");
 
 
 // Authentication Page Navigation
-
-
 function showLoginPage() {
     loginPage.style.display = "flex";
     registerPage.style.display = "none";
+    app.style.display = "none";
 }
 
 function showRegisterPage() {
     loginPage.style.display = "none";
     registerPage.style.display = "flex";
+    app.style.display = "none";
+}
+
+function showAppPage() {
+    loginPage.style.display = "none";
+    registerPage.style.display = "none";
+    app.style.display = "flex";
 }
 
 registerLink.addEventListener("click", function (event) {
-
     event.preventDefault();
-
     showRegisterPage();
-
 });
 
 loginLink.addEventListener("click", function (event) {
-
     event.preventDefault();
-
     showLoginPage();
-
 });
 
-// ===========================================
+
 // Login User
-// ===========================================
-
 loginForm.addEventListener("submit", function (event) {
-
-    // Stop Refresh
-    event.preventDefault();
+    event.preventDefault(); // Stop Refresh
 
     // Read Inputs
     const username = loginUsername.value.trim();
@@ -79,65 +74,48 @@ loginForm.addEventListener("submit", function (event) {
 
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (
-        savedUser &&
-        username === savedUser.username &&
-        password === savedUser.password
-    ) {
-        loginPage.style.display = "none";
-        app.style.display = "flex";
+    if (savedUser && username === savedUser.username && password === savedUser.password) {
+        showAppPage();
         loginForm.reset();
     } else {
         alert("Invalid Username or Password");
     }
-
-    console.log(username);
-    console.log(password);
-
 });
 
-app.style.display = "none";
-showLoginPage();
 
-
-
-// ===========================================
 // Register User
-// ===========================================
-
 registerForm.addEventListener("submit", function (event) {
-
-    // Stop page refresh
-    event.preventDefault();
+    event.preventDefault(); // Stop page refresh
 
     // Read Input Values
     const fullName = registerName.value.trim();
     const username = registerUsername.value.trim();
     const password = registerPassword.value.trim();
 
+    if (fullName === "" || username === "" || password === "") {
+        alert("Please fill all fields.");
+        return;
+    }
 
-    if (
-        fullName === "" ||
-        username === "" ||
-        password === ""
-)   {
-    alert("Please fill all fields.");
-    return;
-}
-
-// Create User Object
-const user = {
-    fullName,
-    username,
-    password
-};
-localStorage.setItem("user", JSON.stringify(user));
-
-alert("Registration Successful!");
-registerForm.reset();
-showLoginPage();
-
-// Print User Object
-console.log(user);
-
+    // Create User Object
+    const user = {
+        fullName,
+        username,
+        password
+    };
+    
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Registration Successful!");
+    
+    registerForm.reset();
+    showLoginPage();
 });
+
+
+// Logout User
+logoutBtn.addEventListener("click", function () {
+    showLoginPage();
+});
+
+// Initialize App State
+showLoginPage();
