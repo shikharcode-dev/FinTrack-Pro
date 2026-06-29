@@ -1,13 +1,6 @@
-/* =======================================================
-                    GOOGLE FONT
-======================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* =======================================================
-                    ROOT VARIABLES
-======================================================= */
 :root {
-    /* COLORS */
     --primary: #3b82f6;
     --primary-hover: #2563eb;
     --success: #22c55e;
@@ -20,22 +13,13 @@
     --text: #ffffff;
     --text-secondary: #94a3b8;
     --white: #ffffff;
-
-    /* SHADOW */
     --shadow: 0 15px 35px rgba(0,0,0,.25);
-
-    /* BORDER RADIUS */
     --radius-sm: 8px;
     --radius: 16px;
     --radius-lg: 24px;
-
-    /* TRANSITION */
     --transition: .35s ease;
 }
 
-/* =======================================================
-                        RESET
-======================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -66,8 +50,7 @@ button {
     transition: var(--transition);
 }
 
-input,
-select {
+input, select {
     outline: none;
     border: none;
     font-family: inherit;
@@ -87,9 +70,6 @@ img {
     color: var(--text-secondary);
 }
 
-/* =======================================================
-                    GLOBAL STYLES
-======================================================= */
 section {
     width: 100%;
 }
@@ -121,9 +101,6 @@ p {
     line-height: 1.7;
 }
 
-/* =======================================================
-                    CUSTOM SCROLLBAR
-======================================================= */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -141,11 +118,8 @@ p {
     background: var(--primary-hover);
 }
 
-/* =======================================================
-                    LOGIN & REGISTER PAGE
-======================================================= */
-.login-page,
-.register-page {
+/* Auth Screens */
+.login-page, .register-page {
     min-height: 100vh;
     width: 100%;
     display: none;
@@ -158,8 +132,7 @@ p {
         var(--background);
 }
 
-.login-container,
-.register-container {
+.login-container, .register-container {
     width: 100%;
     max-width: 1150px;
     display: grid;
@@ -172,11 +145,7 @@ p {
     box-shadow: 0 25px 60px rgba(0,0,0,.45);
 }
 
-/* =======================================================
-                LEFT SIDE (LOGIN & REGISTER)
-======================================================= */
-.login-left,
-.register-left {
+.login-left, .register-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,8 +157,7 @@ p {
     overflow: hidden;
 }
 
-.login-left::before,
-.register-left::before {
+.login-left::before, .register-left::before {
     content: "";
     position: absolute;
     width: 300px;
@@ -200,8 +168,7 @@ p {
     right: -80px;
 }
 
-.login-left::after,
-.register-left::after {
+.login-left::after, .register-left::after {
     content: "";
     position: absolute;
     width: 220px;
@@ -219,46 +186,33 @@ p {
     margin-bottom: 40px;
 }
 
-.brand-logo i {
-    font-size: 2.8rem;
-}
+.brand-logo i { font-size: 2.8rem; }
+.brand-logo h1 { font-size: 2rem; }
 
-.brand-logo h1 {
-    font-size: 2rem;
-}
-
-.login-left h2,
-.register-left h2 {
+.login-left h2, .register-left h2 {
     font-size: 2.5rem;
     margin-bottom: 18px;
 }
 
-.login-left p,
-.register-left p {
+.login-left p, .register-left p {
     color: rgba(255,255,255,.85);
     max-width: 420px;
     line-height: 1.8;
 }
 
-/* =======================================================
-                    RIGHT SIDE & FORMS
-======================================================= */
-.login-right,
-.register-right {
+.login-right, .register-right {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 60px;
 }
 
-.login-right form,
-.register-right form {
+.login-right form, .register-right form {
     width: 100%;
     max-width: 420px;
 }
 
-.login-right h2,
-.register-right h2 {
+.login-right h2, .register-right h2 {
     text-align: center;
     margin-bottom: 35px;
     color: var(--white);
@@ -290,11 +244,7 @@ p {
     box-shadow: 0 0 0 4px rgba(59,130,246,.18);
 }
 
-/* =======================================================
-                    AUTH BUTTONS & TEXT
-======================================================= */
-#login-btn,
-#register-btn {
+#login-btn, #register-btn {
     width: 100%;
     padding: 15px;
     margin-top: 10px;
@@ -305,49 +255,39 @@ p {
     font-weight: 600;
 }
 
-#login-btn:hover,
-#register-btn:hover {
+#login-btn:hover, #register-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(37,99,235,.35);
 }
 
-#login-btn:active,
-#register-btn:active {
+#login-btn:active, #register-btn:active {
     transform: scale(.97);
 }
 
-.login-right p,
-.register-right p {
+.login-right p, .register-right p {
     text-align: center;
     margin-top: 25px;
 }
 
-#show-register,
-#show-login {
+#show-register, #show-login {
     color: var(--primary);
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
 }
 
-#show-register:hover,
-#show-login:hover {
+#show-register:hover, #show-login:hover {
     color: var(--primary-hover);
     text-decoration: underline;
 }
 
-/* =======================================================
-                    APP LAYOUT
-======================================================= */
+/* App Core */
 .app {
     display: none;
     min-height: 100vh;
     flex-wrap: wrap;
 }
 
-/* =======================================================
-                    SIDEBAR
-======================================================= */
 .sidebar {
     width: 280px;
     background: var(--sidebar);
@@ -421,9 +361,6 @@ p {
     color: var(--white);
 }
 
-/* =======================================================
-                    LOGOUT BUTTON
-======================================================= */
 .sidebar-bottom {
     margin-top: 50px;
 }
@@ -443,9 +380,6 @@ p {
     box-shadow: 0 15px 35px rgba(239,68,68,.30);
 }
 
-/* =======================================================
-                    MAIN CONTENT & NAVBAR
-======================================================= */
 .main-content {
     flex: 1;
     padding: 35px;
@@ -459,10 +393,6 @@ p {
     margin-bottom: 35px;
 }
 
-.navbar-left h1 {
-    color: var(--white);
-}
-
 .navbar-left p {
     margin-top: 5px;
 }
@@ -473,9 +403,6 @@ p {
     gap: 18px;
 }
 
-/* =======================================================
-                    NAVBAR ELEMENTS
-======================================================= */
 .search-box {
     display: flex;
     align-items: center;
@@ -484,10 +411,6 @@ p {
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 14px 18px;
-}
-
-.search-box i {
-    color: var(--text-secondary);
 }
 
 .search-box input {
@@ -544,9 +467,6 @@ p {
     color: var(--text-secondary);
 }
 
-/* =======================================================
-                    DASHBOARD HEADER
-======================================================= */
 .dashboard-header {
     display: flex;
     justify-content: space-between;
@@ -558,10 +478,6 @@ p {
 .dashboard-title h2 {
     color: var(--white);
     margin-bottom: 8px;
-}
-
-.dashboard-title p {
-    color: var(--text-secondary);
 }
 
 #add-transaction-btn {
@@ -585,9 +501,6 @@ p {
     transform: scale(.97);
 }
 
-/* =======================================================
-                STATISTICS CARDS
-======================================================= */
 .statistics-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -655,11 +568,6 @@ p {
 .transaction-card { border-left: 6px solid var(--warning); }
 .transaction-card .card-icon { background: var(--warning); }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 50px rgba(0,0,0,.35);
-}
-
 .card:hover .card-icon {
     transform: rotate(10deg) scale(1.08);
 }
@@ -670,10 +578,8 @@ p {
     gap: 30px;
 }
 
-/* =======================================================
-                    CHART SECTION
-======================================================= */
-.chart-section {
+/* Base Sections */
+.chart-section, .transaction-section {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -690,26 +596,8 @@ p {
     margin-bottom: 25px;
 }
 
-.section-header h3 {
+.section-header h3, .transaction-header h3 {
     color: var(--white);
-    font-size: 1.3rem;
-}
-
-#finance-chart {
-    width: 100% !important;
-    height: 350px !important;
-}
-
-/* =======================================================
-                TRANSACTION SECTION
-======================================================= */
-.transaction-section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 30px;
-    box-shadow: var(--shadow);
-    animation: fadeIn .6s ease;
 }
 
 .transaction-header {
@@ -718,10 +606,6 @@ p {
     align-items: center;
     margin-bottom: 25px;
     gap: 20px;
-}
-
-.transaction-header h3 {
-    color: var(--white);
 }
 
 .filter-buttons {
@@ -738,15 +622,11 @@ p {
     font-weight: 500;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.filter-btn:hover, .filter-btn.active {
     background: var(--primary);
     color: white;
 }
 
-/* =======================================================
-                    TABLE & BADGES
-======================================================= */
 .table-wrapper {
     overflow-x: auto;
     border-radius: 14px;
@@ -800,25 +680,6 @@ tbody td {
     font-weight: 600;
 }
 
-.delete-btn {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    background: rgba(239,68,68,.15);
-    color: var(--danger);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.delete-btn:hover {
-    background: var(--danger);
-    color: white;
-}
-
-/* =======================================================
-                EMPTY STATE
-======================================================= */
 .empty-state {
     display: flex;
     flex-direction: column;
@@ -843,9 +704,7 @@ tbody td {
     max-width: 420px;
 }
 
-/* =======================================================
-                    TRANSACTION MODAL
-======================================================= */
+/* Modals */
 .modal {
     position: fixed;
     inset: 0;
@@ -895,9 +754,6 @@ tbody td {
     background: var(--danger);
 }
 
-/* =======================================================
-                TRANSACTION FORM
-======================================================= */
 #transaction-form {
     display: flex;
     flex-direction: column;
@@ -915,8 +771,7 @@ tbody td {
     font-weight: 500;
 }
 
-.input-group input,
-.input-group select {
+.input-group input, .input-group select {
     background: #111827;
     border: 1px solid var(--border);
     color: var(--white);
@@ -924,8 +779,7 @@ tbody td {
     border-radius: 12px;
 }
 
-.input-group input:focus,
-.input-group select:focus {
+.input-group input:focus, .input-group select:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(59,130,246,.18);
 }
@@ -943,9 +797,7 @@ tbody td {
     transform: translateY(-3px);
 }
 
-/* =======================================================
-                    SETTINGS
-======================================================= */
+/* Settings */
 .settings-section {
     margin-top: 40px;
 }
@@ -973,8 +825,7 @@ tbody td {
     color: var(--white);
 }
 
-.setting-card input,
-.setting-card select {
+.setting-card input, .setting-card select {
     width: 100%;
     background: #111827;
     border: 1px solid var(--border);
@@ -1003,9 +854,6 @@ tbody td {
     transform: translateY(-3px);
 }
 
-/* =======================================================
-                    FOOTER
-======================================================= */
 footer {
     text-align: center;
     padding: 30px 20px;
@@ -1018,9 +866,7 @@ footer span {
     color: var(--danger);
 }
 
-/* =======================================================
-                ANIMATIONS
-======================================================= */
+/* Animations */
 @keyframes modalPop {
     from { opacity: 0; transform: scale(.8); }
     to { opacity: 1; transform: scale(1); }
@@ -1044,22 +890,18 @@ button:active {
     transform: scale(.97);
 }
 
-input:focus,
-select:focus {
+input:focus, select:focus {
     transform: scale(1.01);
 }
 
-/* =======================================================
-                    RESPONSIVE DESIGN (TABLET)
-======================================================= */
+/* Responsiveness - Tablet */
 @media(max-width: 992px) {
     .sidebar {
         width: 90px;
         padding: 20px 12px;
     }
 
-    .sidebar-logo h2,
-    .sidebar-menu span {
+    .sidebar-logo h2, .sidebar-menu span {
         display: none;
     }
 
@@ -1093,9 +935,7 @@ select:focus {
     }
 }
 
-/* =======================================================
-                    RESPONSIVE DESIGN (MOBILE)
-======================================================= */
+/* Responsiveness - Mobile */
 @media(max-width: 768px) {
     .app {
         flex-direction: column;
@@ -1161,27 +1001,21 @@ select:focus {
         flex-wrap: wrap;
     }
 
-    .login-container,
-    .register-container {
+    .login-container, .register-container {
         grid-template-columns: 1fr;
     }
 
-    .login-left,
-    .register-left {
+    .login-left, .register-left {
         padding: 45px;
         text-align: center;
         align-items: center;
     }
 
-    .login-right,
-    .register-right {
+    .login-right, .register-right {
         padding: 35px;
     }
 }
 
-/* =======================================================
-                RESPONSIVE DESIGN (SMALL MOBILE)
-======================================================= */
 @media(max-width: 576px) {
     body {
         font-size: 14px;
@@ -1213,9 +1047,7 @@ select:focus {
         font-size: 1.6rem;
     }
 
-    .chart-section,
-    .transaction-section,
-    .setting-card {
+    .chart-section, .transaction-section, .setting-card {
         padding: 20px;
     }
 
@@ -1223,26 +1055,17 @@ select:focus {
         padding: 20px;
     }
 
-    .table-wrapper {
-        overflow-x: auto;
-    }
-
     table {
         min-width: 700px;
     }
 }
 
-/* =======================================================
-                RESPONSIVE DESIGN (EXTRA SMALL)
-======================================================= */
 @media(max-width: 400px) {
-    .login-left,
-    .register-left {
+    .login-left, .register-left {
         padding: 30px;
     }
 
-    .login-right,
-    .register-right {
+    .login-right, .register-right {
         padding: 20px;
     }
 
@@ -1250,8 +1073,7 @@ select:focus {
         font-size: 1.5rem;
     }
 
-    .login-left h2,
-    .register-left h2 {
+    .login-left h2, .register-left h2 {
         font-size: 2rem;
     }
 
@@ -1270,87 +1092,87 @@ select:focus {
     }
 }
 
-.action-buttons{
-    display:flex;
-    gap:10px;
+/* Page Feature Extensions */
+.action-buttons {
+    display: flex;
+    gap: 10px;
 }
 
-.edit-btn{
-    padding:8px 16px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    background:#3b82f6;
-    color:white;
-    font-weight:600;
-    transition:.3s;
+.edit-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
 }
 
-.edit-btn:hover{
-    background:#2563eb;
+.edit-btn:hover {
+    background: #2563eb;
 }
 
-.delete-btn{
-    padding:8px 16px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    background:#ef4444;
-    color:white;
-    font-weight:600;
-    transition:.3s;
+.delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #ef4444;
+    color: white;
+    font-weight: 600;
+    transition: .3s;
 }
 
-.delete-btn:hover{
-    background:#dc2626;
+.delete-btn:hover {
+    background: #dc2626;
 }
 
-#transaction-section{
-    display:none;
+#transaction-section, #settings-section, #analytics-section {
+    display: none;
 }
 
-#settings-section{
-    display:none;
+#cashflow-chart {
+    width: 100%;
+    max-width: 100%;
+    height: 320px !important;
+    margin-bottom: 30px;
 }
 
-#analytics-section{
-    display:none;
+.analytics-card {
+    background: #232d3f;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
 }
 
-
-#cashflow-chart{
-    width:100%;
-    max-width:700px;
-    height:400px;
-    margin:40px auto;
+.progress-box {
+    margin-bottom: 15px;
 }
 
-.analytics-card{
-    background:#232d3f;
-    padding:25px;
-    border-radius:15px;
-    margin-top:30px;
+.progress-box p {
+    margin-bottom: 6px;
+    font-size: 14px;
 }
 
-.progress{
-    width:100%;
-    height:18px;
-    background:#111827;
-    border-radius:50px;
-    overflow:hidden;
-    margin-bottom:25px;
+.progress {
+    width: 100%;
+    height: 18px;
+    background: #111827;
+    border-radius: 50px;
+    overflow: hidden;
 }
 
-#income-bar{
-    width:0%;
-    height:100%;
-    background:#22c55e;
-    transition:.5s;
+#income-bar {
+    width: 0%;
+    height: 100%;
+    background: #22c55e;
+    transition: .5s ease;
 }
 
-#expense-bar{
-    width:0%;
-    height:100%;
-    background:#ef4444;
-    transition:.5s;
+#expense-bar {
+    width: 0%;
+    height: 100%;
+    background: #ef4444;
+    transition: .5s ease;
 }
