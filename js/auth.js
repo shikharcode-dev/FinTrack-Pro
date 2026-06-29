@@ -99,6 +99,10 @@ const user = {
     username,
     password
 };
+localStorage.setItem("user", JSON.stringify(user));
+
+console.log("User Saved Successfully");
+console.log(user);
 
 // Print User Object
 console.log(user);
