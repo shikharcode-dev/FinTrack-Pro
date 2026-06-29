@@ -66,3 +66,25 @@ loginLink.addEventListener("click", function (event) {
 
 // default page
 showLoginPage();
+
+
+
+// ===========================================
+// Register User
+// ===========================================
+
+registerForm.addEventListener("submit", function (event) {
+
+    // Stop page refresh
+    event.preventDefault();
+
+    // Read Input Values
+    const fullName = registerName.value.trim();
+    const username = registerUsername.value.trim();
+    const password = registerPassword.value.trim();
+
+    console.log(fullName);
+    console.log(username);
+    console.log(password);
+
+});
