@@ -139,89 +139,103 @@
 
         <main class="main-content">
 
-            <header class="top-navbar">
-                <div class="navbar-left">
-                    <h1>Dashboard</h1>
-                    <p>Welcome back to FinTrack Pro</p>
-                </div>
-                <div class="navbar-right">
-                    <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="search-input" placeholder="Search Transaction...">
+            <section id="dashboard-section">
+                <header class="top-navbar">
+                    <div class="navbar-left">
+                        <h1>Dashboard</h1>
+                        <p>Welcome back to FinTrack Pro</p>
                     </div>
-                    <button type="button" id="theme-btn">
-                        <i class="fa-solid fa-moon"></i>
+                    <div class="navbar-right">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search-input" placeholder="Search Transaction...">
+                        </div>
+                        <button type="button" id="theme-btn">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                        <div class="user-profile">
+                            <div class="user-image">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4 id="display-name">User</h4>
+                                <span>Personal Account</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-header">
+                    <div class="dashboard-title">
+                        <h2>Financial Overview</h2>
+                        <p>Manage your income, expenses and savings.</p>
+                    </div>
+                    <button type="button" id="add-transaction-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Transaction
                     </button>
-                    <div class="user-profile">
-                        <div class="user-image">
-                            <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="statistics-cards">
+                    <div class="card balance-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-wallet"></i>
                         </div>
-                        <div class="user-info">
-                            <h4 id="display-name">User</h4>
-                            <span>Personal Account</span>
+                        <div class="card-info">
+                            <h4>Current Balance</h4>
+                            <h2 id="balance">₹0</h2>
+                        </div>
+                    </div>
+                    <div class="card income-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Total Income</h4>
+                            <h2 id="income">₹0</h2>
+                        </div>
+                    </div>
+                    <div class="card expense-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-arrow-trend-down"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Total Expense</h4>
+                            <h2 id="expense">₹0</h2>
+                        </div>
+                    </div>
+                    <div class="card transaction-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-receipt"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Transactions</h4>
+                            <h2 id="transaction-count">0</h2>
                         </div>
                     </div>
                 </div>
-            </header>
-
-            <div class="dashboard-header">
-                <div class="dashboard-title">
-                    <h2>Financial Overview</h2>
-                    <p>Manage your income, expenses and savings.</p>
-                </div>
-                <button type="button" id="add-transaction-btn">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Transaction
-                </button>
-            </div>
-
-            <div class="statistics-cards">
-                <div class="card balance-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Current Balance</h4>
-                        <h2 id="balance">₹0</h2>
-                    </div>
-                </div>
-                <div class="card income-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Total Income</h4>
-                        <h2 id="income">₹0</h2>
-                    </div>
-                </div>
-                <div class="card expense-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-arrow-trend-down"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Total Expense</h4>
-                        <h2 id="expense">₹0</h2>
-                    </div>
-                </div>
-                <div class="card transaction-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-receipt"></i>
-                    </div>
-                    <div class="card-info">
-                        <h4>Transactions</h4>
-                        <h2 id="transaction-count">0</h2>
-                    </div>
-                </div>
-            </div>
-
-            <section class="chart-section">
-                <div class="section-header">
-                    <h3>Cash Flow Analytics</h3>
-                </div>
-                <canvas id="finance-chart"></canvas>
             </section>
 
-            <section class="transaction-section">
+            <section class="chart-section" id="analytics-section">
+                <h2>Cash Flow Analytics</h2>
+                <div class="analytics-card">
+                    <canvas id="cashflow-chart"></canvas>
+                    <div class="progress-box">
+                        <p>Income</p>
+                        <div class="progress">
+                            <div id="income-bar"></div>
+                        </div>
+                    </div>
+                    <div class="progress-box">
+                        <p>Expense</p>
+                        <div class="progress">
+                            <div id="expense-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="transaction-section" id="transaction-section">
                 <div class="transaction-header">
                     <h3>Recent Transactions</h3>
                     <div class="filter-buttons">
@@ -343,10 +357,7 @@
         </main>
     </div>
 
-<script
-    type="module"
-    src="./js/app.js"
-></script>
-
+<script type="module" src="./js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

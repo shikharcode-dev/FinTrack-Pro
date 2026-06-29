@@ -17,6 +17,39 @@ const transactionCountElement = document.querySelector("#transaction-count");
 
 const transactionTableBody = document.querySelector("#transaction-body");
 
+
+const allBtn = document.querySelector('[data-filter="all"]');
+const incomeBtn = document.querySelector('[data-filter="income"]');
+const expenseBtn = document.querySelector('[data-filter="expense"]');
+
+allBtn.addEventListener("click", () => {
+    renderTransactions(transactions);
+});
+
+incomeBtn.addEventListener("click", () => {
+
+    const incomeTransactions = transactions.filter(transaction => {
+
+        return transaction.type === "income";
+
+    });
+
+    renderTransactions(incomeTransactions);
+
+});
+
+expenseBtn.addEventListener("click", () => {
+
+    const expenseTransactions = transactions.filter(transaction => {
+
+        return transaction.type === "expense";
+
+    });
+
+    renderTransactions(expenseTransactions);
+
+});
+
 let transactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
 let editIndex = null;
@@ -92,11 +125,27 @@ function loadTransactions() {
 
 }
 
-function renderTransactions() {
+function renderTransactions(data = transactions) {
 
     transactionTableBody.innerHTML = "";
 
-    transactions.forEach((transaction, index) => {
+    if(data.length === 0){
+
+        transactionTableBody.innerHTML = `
+            <tr>
+                <td colspan="6" style="text-align:center;padding:25px;">
+                    No Transactions Found
+                </td>
+            </tr>
+        `;
+
+        updateStatistics();
+
+        return;
+
+    }
+
+    data.forEach((transaction, index) => {
 
         transactionTableBody.innerHTML += `
             <tr>
@@ -126,9 +175,15 @@ function renderTransactions() {
 };
 
 
-function deleteTransaction(index) {
+function deleteTransaction(index){
 
-    transactions.splice(index, 1);
+    const confirmDelete = confirm("Delete this transaction?");
+
+    if(!confirmDelete){
+        return;
+    }
+
+    transactions.splice(index,1);
 
     localStorage.setItem(
         "transactions",
@@ -200,3 +255,20 @@ function editTransaction(index){
     openTransactionModal();
 
 }
+
+
+const searchInput = document.querySelector("#search-input");
+
+searchInput.addEventListener("input", function () {
+
+    const value = this.value.toLowerCase();
+
+    const filtered = transactions.filter(transaction => {
+
+        return transaction.title.toLowerCase().includes(value);
+
+    });
+
+    renderTransactions(filtered);
+
+});

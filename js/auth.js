@@ -115,6 +115,9 @@ registerForm.addEventListener("submit", function (event) {
 // Logout User
 logoutBtn.addEventListener("click", function () {
     showLoginPage();
+
+    loginForm.reset();
+    registerForm.reset();
 });
 
 // Initialize App State

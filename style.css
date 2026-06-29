@@ -1304,3 +1304,53 @@ select:focus {
 .delete-btn:hover{
     background:#dc2626;
 }
+
+#transaction-section{
+    display:none;
+}
+
+#settings-section{
+    display:none;
+}
+
+#analytics-section{
+    display:none;
+}
+
+
+#cashflow-chart{
+    width:100%;
+    max-width:700px;
+    height:400px;
+    margin:40px auto;
+}
+
+.analytics-card{
+    background:#232d3f;
+    padding:25px;
+    border-radius:15px;
+    margin-top:30px;
+}
+
+.progress{
+    width:100%;
+    height:18px;
+    background:#111827;
+    border-radius:50px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+#income-bar{
+    width:0%;
+    height:100%;
+    background:#22c55e;
+    transition:.5s;
+}
+
+#expense-bar{
+    width:0%;
+    height:100%;
+    background:#ef4444;
+    transition:.5s;
+}
