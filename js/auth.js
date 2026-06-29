@@ -77,12 +77,26 @@ loginForm.addEventListener("submit", function (event) {
     const username = loginUsername.value.trim();
     const password = loginPassword.value.trim();
 
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (
+        savedUser &&
+        username === savedUser.username &&
+        password === savedUser.password
+    ) {
+        loginPage.style.display = "none";
+        app.style.display = "flex";
+        loginForm.reset();
+    } else {
+        alert("Invalid Username or Password");
+    }
+
     console.log(username);
     console.log(password);
 
 });
 
-// default page
+app.style.display = "none";
 showLoginPage();
 
 
@@ -119,8 +133,9 @@ const user = {
 };
 localStorage.setItem("user", JSON.stringify(user));
 
-console.log("User Saved Successfully");
-console.log(user);
+alert("Registration Successful!");
+registerForm.reset();
+showLoginPage();
 
 // Print User Object
 console.log(user);
