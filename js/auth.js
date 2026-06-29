@@ -93,8 +93,14 @@ registerForm.addEventListener("submit", function (event) {
     return;
 }
 
-    console.log(fullName);
-    console.log(username);
-    console.log(password);
+// Create User Object
+const user = {
+    fullName,
+    username,
+    password
+};
+
+// Print User Object
+console.log(user);
 
 });
